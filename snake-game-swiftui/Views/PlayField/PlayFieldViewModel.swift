@@ -13,7 +13,6 @@ class PlayFieldViewModel: ObservableObject {
   }
 
   func getCellItemSize(geometry: GeometryProxy, columnsCount: Int) -> CGFloat {
-    print(geometry.size.width / CGFloat(columnsCount))
     return geometry.size.width / CGFloat(columnsCount)
   }
 

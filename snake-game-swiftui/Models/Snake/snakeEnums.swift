@@ -1,6 +1,6 @@
 import Foundation
 
-enum SnakeColors: String {
+enum SnakeColors: String, CaseIterable {
   case green = "008000"
   case blue = "0000FF"
   case red = "FF0000"
