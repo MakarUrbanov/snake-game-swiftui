@@ -4,10 +4,13 @@ struct PlayFieldView<Children: View>: View {
   let viewModel = PlayFieldViewModel()
 
   var columns: [GridItem] = []
-  var children: Children
+  var children: (_ columnsCount: Int, _ cellSize: CGFloat) -> Children
 
-  init(columnsCount: Int = 10, @ViewBuilder children: () -> Children) {
-    self.children = children()
+  init(
+    columnsCount: Int = 10,
+    @ViewBuilder children: @escaping (_ columnsCount: Int, _ cellSize: CGFloat) -> Children
+  ) {
+    self.children = children
     let gridItem = GridItem(.flexible(), spacing: 0)
     self.columns = viewModel.getColumns(columnsCount: columnsCount, gridItem: gridItem)
   }
@@ -30,6 +33,12 @@ struct PlayFieldView<Children: View>: View {
             .border(.white, width: 0.2)
           }
         }
+        .zIndex(1)
+        .overlay {
+          children(self.columns.count, size)
+          .zIndex(2)
+        }
+
       }
       .frame(maxWidth: .infinity, maxHeight: .infinity)
     }

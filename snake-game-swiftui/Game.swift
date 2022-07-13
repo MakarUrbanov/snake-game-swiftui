@@ -13,8 +13,9 @@ struct Game: View {
         .zIndex(1)
       }
 
-      PlayFieldView(columnsCount: Game.COLUMNS_COUNT) {
+      PlayFieldView(columnsCount: Game.COLUMNS_COUNT) { (columnsCount, cellSize) in
         ZStack {
+          SnakeView(columnsCount: columnsCount, cellSize: cellSize)
         }
       }
     }

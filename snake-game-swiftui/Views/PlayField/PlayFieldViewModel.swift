@@ -15,11 +15,4 @@ class PlayFieldViewModel: ObservableObject {
   func getCellItemSize(geometry: GeometryProxy, columnsCount: Int) -> CGFloat {
     return geometry.size.width / CGFloat(columnsCount)
   }
-
-  // TODO
-//  func getPositionByCoordinates(cellSize: CGFloat, coordinates: CGPoint) -> CGPoint {
-//    let x = CGFloat(coordinates.x) * cellSize + (cellSize / 2)
-//    let y = CGFloat(coordinates.y) * cellSize + (cellSize / 2)
-//    return CGPoint(x: x, y: y)
-//  }
 }
